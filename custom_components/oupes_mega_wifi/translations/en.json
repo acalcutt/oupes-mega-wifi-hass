@@ -122,7 +122,7 @@
         "pairing_failed": "Failed to pair with the device over Bluetooth. Try factory resetting the device's WiFi/Bluetooth settings.",
         "wifi_device_not_found": "Could not find the device via Bluetooth to send WiFi credentials. Make sure the device is powered on and in range.",
         "wifi_provision_failed": "Failed to send WiFi credentials to the device. The device may not have accepted the connection. Try again.",
-        "wifi_ble_not_installed": "The OUPES BLE integration is not installed. It is required to send WiFi credentials to the device over Bluetooth."
+        "wifi_ble_not_installed": "The OUPES BLE integration is not installed. It is required to send WiFi credentials to the device over Bluetooth. Install it from https://github.com/acalcutt/oupes-mega-hass"
       },
       "abort": {
         "already_configured": "This device is already associated with an account.",
