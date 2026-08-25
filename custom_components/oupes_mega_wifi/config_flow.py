@@ -587,10 +587,7 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             try:
                 from custom_components.oupes_mega_ble.ble_pairing import async_pair_device
             except ImportError:
-                self._pairing_error = (
-                    "The 'oupes_mega_ble' integration is not installed (see "
-                    "https://github.com/acalcutt/oupes-mega-hass). BLE pairing is unavailable."
-                )
+                self._pairing_error = "ble_not_installed"
                 return self.async_show_progress_done(next_step_id="credentials")
 
             # Check if async_pair_device accepts ssid/psk by inspecting signature or just passing as kwargs
@@ -632,10 +629,7 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             self._pairing_task = None
 
         if result is None:
-            self._pairing_error = (
-                "The 'oupes_mega_ble' integration is not installed (see "
-                "https://github.com/acalcutt/oupes-mega-hass)."
-            )
+            self._pairing_error = "ble_not_installed"
             return self.async_show_progress_done(next_step_id="credentials")
 
         try:
@@ -650,7 +644,7 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             else:
                 self._pairing_error = "pairing_failed"
         except ImportError:
-            self._pairing_error = "Pairing dependencies missing."
+            self._pairing_error = "ble_not_installed"
             
         return self.async_show_progress_done(next_step_id="credentials")
 
@@ -788,7 +782,7 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             try:
                 from custom_components.oupes_mega_ble.ble_pairing import async_provision_wifi
             except ImportError:
-                self._pairing_error = "wifi_ble_not_installed"
+                self._pairing_error = "ble_not_installed"
                 return self.async_show_progress_done(next_step_id="reconfigure")
 
             self._reconfigure_task = self.hass.async_create_task(
@@ -824,7 +818,7 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             else:
                 self._pairing_error = "wifi_provision_failed"
         except ImportError:
-            self._pairing_error = "wifi_ble_not_installed"
+            self._pairing_error = "ble_not_installed"
 
         return self.async_show_progress_done(next_step_id="reconfigure")
 
