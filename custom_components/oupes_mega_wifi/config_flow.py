@@ -587,7 +587,10 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             try:
                 from custom_components.oupes_mega_ble.ble_pairing import async_pair_device
             except ImportError:
-                self._pairing_error = "The 'oupes_mega_ble' integration is not installed. BLE pairing is unavailable."
+                self._pairing_error = (
+                    "The 'oupes_mega_ble' integration is not installed (see "
+                    "https://github.com/acalcutt/oupes-mega-hass). BLE pairing is unavailable."
+                )
                 return self.async_show_progress_done(next_step_id="credentials")
 
             # Check if async_pair_device accepts ssid/psk by inspecting signature or just passing as kwargs
@@ -629,7 +632,10 @@ class OUPESDeviceSubentryFlow(ConfigSubentryFlow):
             self._pairing_task = None
 
         if result is None:
-            self._pairing_error = "The 'oupes_mega_ble' integration is not installed."
+            self._pairing_error = (
+                "The 'oupes_mega_ble' integration is not installed (see "
+                "https://github.com/acalcutt/oupes-mega-hass)."
+            )
             return self.async_show_progress_done(next_step_id="credentials")
 
         try:

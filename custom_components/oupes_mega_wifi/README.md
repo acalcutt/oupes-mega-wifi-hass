@@ -4,7 +4,7 @@ A Home Assistant custom integration that replaces the OUPES/Cleanergy cloud back
 
 **This is a combined integration** — the proxy server, HTTP interceptor, SiBo stub, and HA entity clients are all contained in a single custom component. No companion integration required.
 
-> **Device settings over WiFi**: Silent Mode, Breath Light, Fast Charge, Screen Timeout, and standby timeouts are writable via this integration, but the device firmware **never echoes setting values back** over WiFi. Saved values are persisted in the HA state database and restored on restart. For full bidirectional setting state visibility, use the companion [`oupes_mega_ble`](../oupes_mega_ble/README.md) integration.
+> **Device settings over WiFi**: Silent Mode, Breath Light, Fast Charge, Screen Timeout, and standby timeouts are writable via this integration, but the device firmware **never echoes setting values back** over WiFi. Saved values are persisted in the HA state database and restored on restart. For full bidirectional setting state visibility, use the companion [`oupes_mega_ble`](https://github.com/acalcutt/oupes-mega-hass) integration.
 
 ---
 
